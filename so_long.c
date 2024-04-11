@@ -6,7 +6,7 @@
 /*   By: vbarsegh <vbarsegh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:13:25 by vbarsegh          #+#    #+#             */
-/*   Updated: 2024/03/28 20:32:49 by vbarsegh         ###   ########.fr       */
+/*   Updated: 2024/04/11 22:51:10 by vbarsegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ int	main(int argc, char **argv)
 	{
 		write(1, "Invalid argc argument\n", 22);
 		return (1);
-	}
+	}//stugum enq vor baci executable faylic mi parametre tvac ylbi,vorne mer qartezna ylnelu,voch avel pti ylni voch pakas
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
 		write(1, "Can not open file\n", 18);
 		return (1);
 	}
-	if_map_was_ended_tochka_ber(argv[1]);
+	if_map_was_ended_tochka_ber(argv[1]);//stugum enq ardyoq fayly .ber-ov a prcnum,ete chka errora
 	map.map = parsing(fd, &map);
 	if (!(map.map[0]))
 		return (1);
 	validation(&map);
-	if_matrix_simvols_is_valid(&map);
+	if_matrix_simvols_is_valid(&map);//ete faylum arka en P,E,C,1,0,M ic baci urish simvolmner apa map-@ hamarvum e invalid=>error
 	mlx_part(&map);
 	return (0);
 }

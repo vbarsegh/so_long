@@ -6,7 +6,7 @@
 /*   By: vbarsegh <vbarsegh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:13:11 by vbarsegh          #+#    #+#             */
-/*   Updated: 2024/03/28 18:15:38 by vbarsegh         ###   ########.fr       */
+/*   Updated: 2024/04/11 23:00:38 by vbarsegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	initiliaze_image_ptr(t_mlx *mlx)
 {
 	mlx->img_ptr_player = mlx_xpm_file_to_image(mlx->mlx,
-			"textures/player.xpm", &mlx->img_width, &mlx->img_height);
+			"textures/player.xpm", &mlx->img_width, &mlx->img_height);//sa mer .xpm nkari cucichna,aysinqn es cucichi mijocov mlx_put_image_to_window funkcian kgtni nkary ev kdni ekrani vra hamapatasxan kordinatnerov
 	mlx->img_ptr_player_anim = mlx_xpm_file_to_image(mlx->mlx,
 			"textures/player_anim.xpm", &mlx->img_width, &mlx->img_height);
 	mlx->img_ptr_wall = mlx_xpm_file_to_image(mlx->mlx,
@@ -43,8 +43,8 @@ int	draw_map(t_map *map)
 		j = 0;
 		while (j < map->column)
 		{
-			mlx_put_image_to_window(map->mlx.mlx, map->mlx.window,
-				map->mlx.img_ptr_0, j * SIZE, i * SIZE);
+			mlx_put_image_to_window(map->mlx.mlx, map->mlx.window,//KAREVOR MAS!!menq palyubasu nkarelu enq azat taracqin hamapatasxan imig@
+				map->mlx.img_ptr_0, j * SIZE, i * SIZE);//texadrvuma .xpm nkary j * SIZE ev i * SIZE koordinatnerum
 			if (map->map[i][j] == '1')
 				mlx_put_image_to_window(map->mlx.mlx, map->mlx.window,
 					map->mlx.img_ptr_wall, j * SIZE, i * SIZE);
@@ -77,7 +77,7 @@ int	draw_and_clear_map(t_map *map)
 {
 	char	*arr;
 
-	mlx_clear_window(map->mlx.mlx, map->mlx.window);
+	mlx_clear_window(map->mlx.mlx, map->mlx.window);//maqrum enq patuhany,aysinqn inch nkarel einq jnjuma es funkcian,vortev chenq uzuece nkaraci vric nkarenq mtacelov vor ete shat anenq irar vra klcvi ktraqi))
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.window,
 		map->mlx.img_ptr_exit, map->pos_exit_x * SIZE, map->pos_exit_y * SIZE);
 	draw_map(map);

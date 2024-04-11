@@ -6,7 +6,7 @@
 /*   By: vbarsegh <vbarsegh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:13:38 by vbarsegh          #+#    #+#             */
-/*   Updated: 2024/03/28 20:35:18 by vbarsegh         ###   ########.fr       */
+/*   Updated: 2024/04/11 22:49:52 by vbarsegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	validation(t_map *map)
 	map->count_coins = 0;
 	count_exit = 0;
 	count_start_p = 0;
-	map->column = check_if_all_line_len_is_equal(map);
-	border_check(map);
-	if_how_simvols_have_map(map, count_exit, count_start_p);
-	copy_map = get_copy_map(map);
+	map->column = check_if_all_line_len_is_equal(map);//nayum enq vor sax toxery nuyn erkarutyunn(simvolneri qanakay =linen) unenan
+	border_check(map);//stugum enq ardyoq qartezi verev,nerqev,aj u dzax koxmery sax 1 erov pakvac linen,ete che errora
+	if_how_simvols_have_map(map, count_exit, count_start_p);//parzvum enq te yuraqanchyur simvolic(P,E,C) qani hat ka
+	copy_map = get_copy_map(map);//copy_map enq stexcum,vor iranov fllod_fill-@ irakanacnenq,vor kparzi ardyoq player-@ karoxa vercnel bolor coin-nery ev hasni exit-in
 	if (!copy_map)
 		free_and_exit_func(map->map);
 	flood_fill(copy_map, map);
-	check_map_is_valid(copy_map, map);
+	check_map_is_valid(copy_map, map);//ete copy_map-oii mej mnacel en P kam E kam C uremn player-@ chi kara xaxa xaxy ev avartin hascni=>ERROR 
 	free_split_line(copy_map);
 }
 
@@ -87,7 +87,7 @@ void	if_how_simvols_have_map(t_map *map, int count_exit, int count_start_p)
 				initiliaze_player_positions(map, &count_start_p, i, j);
 			else if (map->map[i][j] == 'E')
 			{
-				map->pos_exit_x = j;
+				map->pos_exit_x = j;//fiqsum en nayev exit-i koordinatnery
 				map->pos_exit_y = i;
 				count_exit++;
 			}

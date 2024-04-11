@@ -6,7 +6,7 @@
 /*   By: vbarsegh <vbarsegh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:13:45 by vbarsegh          #+#    #+#             */
-/*   Updated: 2024/03/28 20:35:02 by vbarsegh         ###   ########.fr       */
+/*   Updated: 2024/04/11 22:43:12 by vbarsegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	**parsing(int fd, t_map *map)
 		buffer = get_next_line(fd);
 		if (!buffer)
 			break ;
-	}
+	}//   .ber faylic amboxjy lcnum enq buffer-i mej
 	return (parsing_part_two(map, join_arr));
 }
 
@@ -41,22 +41,22 @@ char	**parsing_part_two(t_map *map, char *join_arr)
 	char	*trim_arr;
 	char	**split_matrix;
 
-	trim_arr = ft_strtrim(join_arr, " \n\v\f\r\t");
+	trim_arr = ft_strtrim(join_arr, " \n\v\f\r\t");//array-i vra trim enq anum
 	if (!trim_arr)
 	{
 		free(join_arr);
 		exit(1);
 	}
 	free(join_arr);
-	if_have_slesh_n_next_two(trim_arr);
-	split_matrix = split(trim_arr, '\n');
+	if_have_slesh_n_next_two(trim_arr);//ete irar hetevic /n-ner exav apa error enq tpum
+	split_matrix = split(trim_arr, '\n');//split enq anum trim arac array-@ @st /n-i
 	if (!split_matrix)
 	{
 		free(trim_arr);
 		exit(1);
 	}
 	free(trim_arr);
-	return (get_end_trimmed_matrix(split_matrix, map));
+	return (get_end_trimmed_matrix(split_matrix, map));//spliti exac erkchap zangvaci yuraqanchyur toxi verjic trim enq anum
 }
 
 void	if_have_slesh_n_next_two(char *trim_arr)

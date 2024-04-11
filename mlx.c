@@ -6,7 +6,7 @@
 /*   By: vbarsegh <vbarsegh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 18:14:10 by vbarsegh          #+#    #+#             */
-/*   Updated: 2024/03/28 20:34:29 by vbarsegh         ###   ########.fr       */
+/*   Updated: 2024/04/11 23:06:45 by vbarsegh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	free_mlx(t_map *map, int i)
 	int	j;
 
 	j = 0;
-	mlx_destroy_window(map->mlx.mlx, map->mlx.window);
+	mlx_destroy_window(map->mlx.mlx, map->mlx.window);//verjnakan avarteluc,ogtvum enq mlx-i es funkciayic
 	while (j < map->row)
 		free(map->map[j++]);
 	free(map->map);
@@ -87,8 +87,9 @@ void	mlx_part(t_map *map)
 	initiliaze_image_ptr(&mlx);
 	map->mlx = mlx;
 	draw_map(map);
-	mlx_hook(mlx.window, 2, 0, key_press, map);
-	mlx_hook(mlx.window, 17, 0, finish_with_esc, map);
-	mlx_loop_hook(mlx.mlx, draw_and_clear_map, map);
-	mlx_loop(mlx.mlx);
+	mlx_hook(mlx.window, 2, 0, key_press, map);//2-y key_press-na ,aysinqn henc sexmenq mer kargavorac hatuk stexnery,inqy ardzaganqelua
+	//(yani,ashxatec orinak W-n,voncor terminalum gri,du kpar W tarin,de yst mer grac funckiayi  henc sexmenq W-n kani en inch es greleem funkciayi mej)
+	mlx_hook(mlx.window, 17, 0, finish_with_esc, map);//es funkcian hnaravorutyuna talis vor ESC-ov prcnenq xaxy(kisat toxac)
+	mlx_loop_hook(mlx.mlx, draw_and_clear_map, map);//loop_hook-mijocovel mer draw_and_clear_map funkcian ha kanchvelua,(for eli)
+	mlx_loop(mlx.mlx);//cikli meja qcum ,ete chlni apa patuhany enqan arag kbacvi u kpakvi vor chenqe hascni nkatel,isk loop funkciayi mijocov voncor cikli mej enq gorcyntacy qcum
 }
